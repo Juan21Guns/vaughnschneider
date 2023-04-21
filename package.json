@@ -4,7 +4,8 @@
   "description": "React | Axios | Express | Javascript | PostgreSQL",
   "main": "index.js",
   "scripts": {
-    "test": "npx webpack --config webpack.config.js"
+    "develop": "webpack-dev-server",
+    "test": "webpack --config webpack.config.js -w"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,8 @@
   "homepage": "https://github.com/Juan21Guns/vaughnschneider#readme",
   "verbose": false,
   "devDependencies": {
-    "webpack-cli": "^5.0.1"
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.3"
   },
   "dependencies": {
     "@babel/core": "^7.21.4",
@@ -28,7 +30,6 @@
     "babel-loader": "^9.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "webpack": "^5.80.0",
-    "webpack-dev-server": "^4.13.3"
+    "webpack": "^5.80.0"
   }
 }
