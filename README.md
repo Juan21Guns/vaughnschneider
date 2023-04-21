@@ -9,6 +9,9 @@ My project uses (*or will use*) a multitude of tools, and adheres to the Airbnb 
 
 ### npm i:
 > npm init -y
+>
 > @babel/core @babel/preset-env @babel/preset-react
+>
 > react react-dom
+>
 > webpack webpack-cli
