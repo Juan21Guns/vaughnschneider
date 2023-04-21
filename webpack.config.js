@@ -1,4 +1,5 @@
 const path = require('path');
+
 const SRC_DIR = path.join(__dirname, '/client/src');
 const DIS_DIR = path.join(__dirname, '/client/dist');
 
@@ -7,12 +8,12 @@ module.exports = {
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     path: DIS_DIR,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devServer: {
     static: DIS_DIR,
     open: true,
-    port: 8080
+    port: 8080,
   },
   module: {
     rules: [{
@@ -24,12 +25,12 @@ module.exports = {
         options: {
           presets: [
             ['@babel/preset-env', {
-              "targets": "defaults"
+              targets: 'defaults',
             }],
-            '@babel/preset-react'
-          ]
-        }
-      }]
-    }]
-  }
+            '@babel/preset-react',
+          ],
+        },
+      }],
+    }],
+  },
 };
