@@ -6,7 +6,7 @@ My project uses (*or will use*) a multitude of tools, and adheres to the Airbnb 
 *****
 <p align="center">
 
-#### React | Axios | Express | Javascript | PostgreSQL | Amazon EC2
+#### React | Axios | Express | Javascript | PostgreSQL | Jest | Amazon EC2
 
 </p>
 

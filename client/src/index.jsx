@@ -1,10 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 function App() {
   return (
-    <div><p>This is now workign dsfasdfasdfasdfasdfaf</p></div>
+    <div><p>Vaughn Schneider&apos;s Portfolio</p></div>
   );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
+root.render(<App />);

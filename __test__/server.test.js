@@ -1,4 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 const axios = require('axios');
+
 axios.defaults.baseURL = 'http://localhost:3000';
 
 describe('Setting up Express', () => {
@@ -7,8 +10,8 @@ describe('Setting up Express', () => {
       .then((response) => (response.data))
       .catch((err) => (err));
 
-      console.log(fetch);
+    console.log(fetch);
 
     expect(fetch).toBe('Hello World');
-  })
+  });
 });
