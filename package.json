@@ -6,7 +6,8 @@
   "scripts": {
     "develop": "webpack-dev-server",
     "test": "webpack --config webpack.config.js -w",
-    "jester": "jest"
+    "jester": "jest",
+    "express-test": "node ./server/index.js"
   },
   "repository": {
     "type": "git",
