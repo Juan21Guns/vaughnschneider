@@ -10,6 +10,11 @@ body {
   left: 0;
 }
 
+header {
+  position: relative;
+  margin: 3vh;
+}
+
 .bar {
   display: inline-block;
   flex: right;
@@ -28,7 +33,11 @@ body {
   padding: 3px;
 }
 
-h1 {
+.overview {
+  border: 3px solid red;
+}
+
+#title h1 {
   font-family: 'Caveat', cursive;
   font-weight: 700;
   font-size: 7em;
