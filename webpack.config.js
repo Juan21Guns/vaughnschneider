@@ -15,6 +15,10 @@ module.exports = {
     open: true,
     port: 8080,
   },
+  devtool: 'source-map',
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+  },
   module: {
     rules: [{
       test: /\.(jsx|js)$/,

@@ -1,0 +1,35 @@
+body {
+  color: black;
+}
+
+#root, body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.bar {
+  display: inline-block;
+  flex: right;
+  align-items: center;
+  justify-content: space-evenly;
+
+  margin: 0;
+  margin-left: 5vw;
+
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.header-section {
+  display: inline-block;
+  padding: 3px;
+}
+
+h1 {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 7em;
+}
