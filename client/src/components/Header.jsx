@@ -2,7 +2,7 @@ import React from 'react';
 
 function Header() {
   return (
-    <header>
+    <header id="sticky-bar">
       <div className="h-left">
         <h3>Home</h3>
         <h3>About</h3>
