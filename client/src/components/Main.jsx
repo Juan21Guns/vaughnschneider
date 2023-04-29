@@ -3,10 +3,10 @@ import React from 'react';
 function Main() {
   return (
     <div className="overview">
-      <section id="title">
+      <section className="title">
         <h1>Vaughn Schneider</h1>
       </section>
-      <section id="description">
+      <section className="description">
         <p>software engineer</p>
       </section>
     </div>
