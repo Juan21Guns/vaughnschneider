@@ -14,8 +14,13 @@ function App() {
     }
   });
 
+  const handleClick = (e) => {
+    console.log(e.target.value);
+  };
+
   return (
     <>
+      <button onClick={handleClick} type="button" id="button-thing">click me</button>
       <Header />
       <Main />
     </>

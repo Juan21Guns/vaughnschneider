@@ -1,3 +1,8 @@
+:root {
+  --deg: 90deg;
+  --dist: 50px;
+}
+
 body {
   color: black;
 }
@@ -21,7 +26,7 @@ header {
   font-weight: 700;
   background-color: lightgrey;
   opacity: 0;
-  z-index: 7;
+  z-index: 6;
   position: sticky;
   top: 0;
 }
@@ -51,26 +56,103 @@ header {
 
   display: flex;
   justify-content: center;
+  z-index: -1;
+}
+
+#button-thing {
+  z-index: 7;
 }
 
 .title {
-  display: flex;
-  align-items: center;
-  padding-bottom: 5em;
+  background: radial-gradient(rgb(46, 46, 46), rgb(20, 20, 20), rgb(0, 0, 0));
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
-.title h1 {
-  font-family: 'Caveat', cursive;
-  font-weight: 700;
-  font-size: 7em;
-
-  margin: 0;
-  width: auto;
+.cube-1 {
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  width: 200px;
+  height: 100px;
   text-align: center;
+
+  transform: translate(35%,20%);
+  transform-style: preserve-3d;
+  perspective: 100px;
+
+  transform: rotateY(50deg);
 }
 
-.title :hover {
-  animation: testy 0.3s;
+#c11 {
+  background-color: red;
+  position: absolute;
+
+  width: 200px;
+  height: 100px;
+
+  transform: translateZ(-50px);
+}
+
+#c16 {
+  background-color: red;
+  position: absolute;
+
+  width: 200px;
+  height: 100px;
+
+  transform: translateZ(50px);
+}
+
+#c12 {
+  background-color: green;
+  position: absolute;
+
+  top: var(--dist);
+
+  width: 200px;
+  height: 100px;
+  transform: rotateX(calc(1 * var(--deg)));
+}
+
+#c13 {
+  background-color: green;
+
+  position: absolute;
+
+  bottom: var(--dist);
+
+  width: 200px;
+  height: 100px;
+  transform: rotateX(calc(-1 * var(--deg)));
+}
+
+#c14 {
+  background-color: yellow;
+
+  position: absolute;
+
+  right: calc(100px + var(--dist));
+
+  width: 100px;
+  height: 100px;
+  transform: rotateY(var(--deg));
+}
+
+#c15 {
+  background-color: yellow;
+
+  position: absolute;
+
+  left: calc(100px + var(--dist));
+
+  width: 100px;
+  height: 100px;
+  transform: rotateY(var(--deg));
 }
 
 @keyframes testy {
