@@ -1,6 +1,7 @@
 :root {
   --deg: 90deg;
   --dist: 50px;
+  --z-transform: 100px;
 }
 
 body {
@@ -81,15 +82,14 @@ header {
   height: 100px;
   text-align: center;
 
-  transform: translate(35%,20%);
   transform-style: preserve-3d;
-  perspective: 100px;
+  perspective: 1000px;
 
-  transform: rotateY(50deg);
+  transform:rotateX(20deg) rotateY(20deg) rotateZ(0deg);
 }
 
 #c11 {
-  background-color: red;
+  background-color: white;
   position: absolute;
 
   width: 200px;
@@ -99,7 +99,7 @@ header {
 }
 
 #c16 {
-  background-color: red;
+  background-color: black;
   position: absolute;
 
   width: 200px;
@@ -171,6 +171,21 @@ header {
   100% {
     transform: scaleX(1);
     font-weight: 700;
+  }
+}
+
+@keyframes onFresh {
+  0% {
+
+  }
+  30% {
+    transform: rotateX(70deg) rotateY(50deg) rotateZ(-20deg);
+  }
+  80% {
+
+  }
+  100% {
+
   }
 }
 
