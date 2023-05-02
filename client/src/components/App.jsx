@@ -1,29 +1,26 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import Header from './Header';
-import Main from './Main';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Nav from './pages/Nav';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Projects from './pages/Projects';
+import Activity from './pages/Activity';
 
 function App() {
-  window.addEventListener('scroll', () => {
-    const scroll = window.scrollY;
-    const header = document.getElementById('sticky-bar');
-
-    if (scroll < 300) {
-      header.style.opacity = 0;
-    } else if (scroll >= 300) {
-      header.style.opacity = (1 - (400 / scroll)) * 3;
-    }
-  });
-
-  const handleClick = (e) => {
-    console.log(e.target.value);
-  };
-
   return (
-    <>
-      <button onClick={handleClick} type="button" id="button-thing">click me</button>
-      <Header />
-      <Main />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Nav />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="activity" element={<Activity />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

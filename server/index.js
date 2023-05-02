@@ -1,5 +1,5 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const express = require('express');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -12,6 +12,10 @@ app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'), (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
 });

@@ -9,11 +9,13 @@ module.exports = {
   output: {
     path: DIS_DIR,
     filename: 'bundle.js',
+    publicPath: '/',
   },
   devServer: {
     static: DIS_DIR,
     open: true,
     port: 8080,
+    historyApiFallback: true,
   },
   devtool: 'source-map',
   resolve: {
