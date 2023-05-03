@@ -4,9 +4,33 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 
 function Nav() {
   const x = useLocation();
+  const distance = '-200px';
+
   React.useEffect(() => {
-    console.log(x.pathname);
+    const navBar = document.querySelector('.collapse');
+    const button = document.querySelector('.box-collapse');
+    switch (x.pathname) {
+      case '/':
+        button.style.visibility = 'hidden';
+        navBar.style.transform = 'translateY(0)';
+        button.style.transform = `translateY(${distance})`;
+        break;
+      default:
+        button.style.visibility = 'visible';
+        navBar.style.transform = `translateY(${distance})`;
+        button.style.transform = 'translateY(0)';
+        break;
+    }
   }, [x]);
+
+  const clickHandler = (event) => {
+    event.preventDefault();
+    const button = document.querySelector('.box-collapse');
+    const navBar = document.querySelector('.collapse');
+    navBar.style.visibility = 'visible';
+    button.style.transform = `translateY(${distance})`;
+    navBar.style.transform = 'translateY(0)';
+  };
 
   return (
     <>
@@ -20,16 +44,17 @@ function Nav() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-            <li>
               <Link to="/projects">Projects</Link>
             </li>
             <li>
               <Link to="/activity">Activity</Link>
             </li>
+            <li className="r-nav">
+              <Link to="/contact">Contact</Link>
+            </li>
           </ul>
         </div>
+        <button type="button" onClick={clickHandler} className="box-collapse">Menu</button>
       </nav>
       <Outlet />
     </>

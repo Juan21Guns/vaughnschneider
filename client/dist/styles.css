@@ -13,4 +13,57 @@ body {
   right: 0;
   left: 0;
   height: 300vh;
+  background-color: black;
+}
+
+ul a {
+  text-decoration: none;
+  color: black;
+}
+
+.collapse {
+  position: absolute;
+  top: -3vh;
+  left: 0;
+  right: 0;
+  height: 15vh;
+  background-color: red;
+  z-index: 2;
+}
+
+ul {
+  position: absolute;
+  margin: 0;
+  top: 3vh;
+  left: 0;
+  height: 11.5vh;
+  width: 99.5%;
+  list-style-type: none;
+  font-size: 1.4em;
+}
+
+li {
+  border: 3px solid brown;
+  margin: 0;
+  width: 4em;
+  height: auto;
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+}
+
+.r-nav {
+  position: absolute;
+  right: 0;
+}
+
+.box-collapse {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  z-index: 1;
+}
+
+.collapse, .box-collapse {
+  transition: transform 1s cubic-bezier(0.55,-0.52, 0.44, 0.99);
 }
