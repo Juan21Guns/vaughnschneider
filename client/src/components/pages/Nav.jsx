@@ -14,6 +14,7 @@ function Nav() {
         button.style.visibility = 'hidden';
         navBar.style.transform = 'translateY(0)';
         button.style.transform = `translateY(${distance})`;
+
         break;
       default:
         button.style.visibility = 'visible';
@@ -27,31 +28,20 @@ function Nav() {
     event.preventDefault();
     const button = document.querySelector('.box-collapse');
     const navBar = document.querySelector('.collapse');
-    navBar.style.visibility = 'visible';
     button.style.transform = `translateY(${distance})`;
     navBar.style.transform = 'translateY(0)';
   };
 
   return (
     <>
-      <nav>
+      <nav id="header">
         <div className="collapse">
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/projects">Projects</Link>
-            </li>
-            <li>
-              <Link to="/activity">Activity</Link>
-            </li>
-            <li className="r-nav">
-              <Link to="/contact">Contact</Link>
-            </li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/projects">Projects</Link></li>
+            <li><Link to="/activity">Activity</Link></li>
+            <li className="r-nav"><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
         <button type="button" onClick={clickHandler} className="box-collapse">Menu</button>
