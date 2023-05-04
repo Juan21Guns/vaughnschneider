@@ -2,6 +2,7 @@
   --deg: 90deg;
   --dist: 50px;
   --z-transform: 100px;
+  --opac: 1;
 }
 
 #root, body {
@@ -9,7 +10,7 @@
   right: 0;
   left: 0;
   height: 300vh;
-  background: linear-gradient(to top, rgb(184, 184, 184), 10%, rgb(234, 234, 234));
+  background: rgb(234, 234, 234);
   user-select: none;
 }
 
@@ -86,11 +87,35 @@ ul a:hover {
 }
 
 .collapse, .box-collapse {
-  transition: transform 0.8s cubic-bezier(0.6,-1.18, 0.44, 0.99);
+  transition: transform 0.6s cubic-bezier(0.6,-1.18, 0.44, 0.99);
 }
 
 .up-arrow {
   position: absolute;
   top: 24vh;
   left: 1vh;
+}
+
+#hoverDiv {
+  position: absolute;
+  top: 15vh;
+  left: 50%;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

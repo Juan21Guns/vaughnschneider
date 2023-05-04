@@ -1,8 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
+import NavHover from './NavHover';
 
 function Nav() {
+  const [showDiv, setShowDiv] = React.useState(false);
+  const [divContent, setDivContent] = React.useState('');
   const x = useLocation();
   const distance = '-200px';
 
@@ -20,6 +23,16 @@ function Nav() {
       button.style.visibility = 'visible';
       navBar.style.transform = `translateY(${distance})`;
       setTimeout(() => { button.style.transform = 'translateY(0)'; }, 1000);
+    }
+  };
+
+  const hoverStyle = (bool, name) => {
+    if (bool) {
+      setShowDiv(true);
+      setDivContent(name);
+    } else {
+      setShowDiv(false);
+      setDivContent('');
     }
   };
 
@@ -43,8 +56,6 @@ function Nav() {
         buttonFly(false, 'header');
         break;
     }
-
-    console.log(x.pathname);
   }, [x]);
 
   return (
@@ -52,11 +63,11 @@ function Nav() {
       <nav id="header">
         <div className="collapse">
           <ul>
-            <li><Link to="/" id="/">Home</Link></li>
-            <li><Link to="/about" id="/about">About</Link></li>
-            <li><Link to="/projects" id="/projects">Projects</Link></li>
-            <li><Link to="/activity" id="/activity">Activity</Link></li>
-            <li className="r-nav"><Link to="/contact" id="/contact">Contact</Link></li>
+            <li><Link to="/" id="/" onMouseEnter={() => { hoverStyle(true, 'Home'); }} onMouseLeave={() => { hoverStyle(false); }}>Home</Link></li>
+            <li><Link to="/about" id="/about" onMouseEnter={() => { hoverStyle(true, 'About'); }} onMouseLeave={() => { hoverStyle(false); }}>About</Link></li>
+            <li><Link to="/projects" id="/projects" onMouseEnter={() => { hoverStyle(true, 'Projects'); }} onMouseLeave={() => { hoverStyle(false); }}>Projects</Link></li>
+            <li><Link to="/activity" id="/activity" onMouseEnter={() => { hoverStyle(true, 'Activity'); }} onMouseLeave={() => { hoverStyle(false); }}>Activity</Link></li>
+            <li className="r-nav"><Link to="/contact" id="/contact" onMouseEnter={() => { hoverStyle(true, 'Contact'); }} onMouseLeave={() => { hoverStyle(false); }}>Contact</Link></li>
           </ul>
           <button type="button" onClick={() => { buttonFly(false, 'header'); }} className="up-arrow">
             <i className="fa-solid fa-arrow-up" />
@@ -66,6 +77,7 @@ function Nav() {
           <i className="fa-solid fa-bars" aria-label="Menu dropdown" />
         </button>
       </nav>
+      <NavHover show={showDiv} divContent={divContent} />
       <Outlet />
     </>
   );
