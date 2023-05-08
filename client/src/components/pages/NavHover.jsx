@@ -2,22 +2,55 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function NavHover({ show, divContent }) {
+function Navhover({ hoveredItem, showDiv }) {
+  const [render, setRender] = React.useState(false);
+  const [contentChange, setContentChange] = React.useState(hoveredItem);
+
+  React.useEffect(() => {
+    if (!showDiv) {
+      const timeId = setTimeout(() => {
+        if (!showDiv) {
+          setRender(false);
+        }
+      }, 500);
+      return () => clearTimeout(timeId);
+    }
+
+    setRender(true);
+    return () => {};
+  }, [showDiv]);
+
+  React.useEffect(() => {
+    if (hoveredItem !== contentChange) {
+      const timeId = setTimeout(() => {
+        if (hoveredItem !== contentChange) {
+          setContentChange(hoveredItem);
+        }
+      }, 250);
+      return () => clearTimeout(timeId);
+    }
+
+    return () => {};
+  }, [hoveredItem]);
+
   return (
-    show && (
-      <div id="hoverDiv">{divContent}</div>
+    render && (
+    <div id="hoverDiv" style={{ animation: `${showDiv ? 'fadeIn 0.5s' : 'fadeOut 0.5s'}` }}>
+      <p>{contentChange}</p>
+    </div>
     )
+
   );
 }
 
-NavHover.propTypes = {
-  show: PropTypes.bool,
-  divContent: PropTypes.string,
+Navhover.propTypes = {
+  hoveredItem: PropTypes.string,
+  showDiv: PropTypes.bool,
 };
 
-NavHover.defaultProps = {
-  show: false,
-  divContent: '',
+Navhover.defaultProps = {
+  hoveredItem: '',
+  showDiv: false,
 };
 
-export default NavHover;
+export default Navhover;

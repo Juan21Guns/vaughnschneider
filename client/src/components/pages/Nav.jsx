@@ -1,11 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import NavHover from './NavHover';
+import Navhover from './Navhover';
 
 function Nav() {
   const [showDiv, setShowDiv] = React.useState(false);
-  const [divContent, setDivContent] = React.useState('');
+  const [hoverBool, setHoverBool] = React.useState(false);
+  const [hoveredItem, setHoveredItem] = React.useState('');
   const x = useLocation();
   const distance = '-200px';
 
@@ -22,19 +23,29 @@ function Nav() {
     } else if (option === 'header') {
       button.style.visibility = 'visible';
       navBar.style.transform = `translateY(${distance})`;
+      setShowDiv(false);
       setTimeout(() => { button.style.transform = 'translateY(0)'; }, 1000);
     }
   };
 
-  const hoverStyle = (bool, name) => {
-    if (bool) {
-      setShowDiv(true);
-      setDivContent(name);
-    } else {
-      setShowDiv(false);
-      setDivContent('');
+  React.useEffect(() => {
+    if (!hoverBool) {
+      const timeId = setTimeout(() => {
+        if (!hoverBool) {
+          setShowDiv(false);
+          setHoveredItem('');
+        }
+      }, 500);
+
+      return () => clearTimeout(timeId);
     }
-  };
+
+    const timeId = setTimeout(() => {
+      setShowDiv(true);
+    }, 100);
+
+    return () => clearTimeout(timeId);
+  }, [hoverBool]);
 
   React.useEffect(() => {
     const listPath = document.querySelectorAll('ul a');
@@ -63,21 +74,21 @@ function Nav() {
       <nav id="header">
         <div className="collapse">
           <ul>
-            <li><Link to="/" id="/" onMouseEnter={() => { hoverStyle(true, 'Home'); }} onMouseLeave={() => { hoverStyle(false); }}>Home</Link></li>
-            <li><Link to="/about" id="/about" onMouseEnter={() => { hoverStyle(true, 'About'); }} onMouseLeave={() => { hoverStyle(false); }}>About</Link></li>
-            <li><Link to="/projects" id="/projects" onMouseEnter={() => { hoverStyle(true, 'Projects'); }} onMouseLeave={() => { hoverStyle(false); }}>Projects</Link></li>
-            <li><Link to="/activity" id="/activity" onMouseEnter={() => { hoverStyle(true, 'Activity'); }} onMouseLeave={() => { hoverStyle(false); }}>Activity</Link></li>
-            <li className="r-nav"><Link to="/contact" id="/contact" onMouseEnter={() => { hoverStyle(true, 'Contact'); }} onMouseLeave={() => { hoverStyle(false); }}>Contact</Link></li>
+            <li><Link to="/" id="/" onMouseEnter={() => { setHoveredItem('Home'); setHoverBool(true); }} onMouseLeave={() => { setHoverBool(false); }}>Home</Link></li>
+            <li><Link to="/about" id="/about" onMouseEnter={() => { setHoveredItem('About'); setHoverBool(true); }} onMouseLeave={() => { setHoverBool(false); }}>About</Link></li>
+            <li><Link to="/projects" id="/projects" onMouseEnter={() => { setHoveredItem('Projects'); setHoverBool(true); }} onMouseLeave={() => { setHoverBool(false); }}>Projects</Link></li>
+            <li><Link to="/activity" id="/activity" onMouseEnter={() => { setHoveredItem('Activity'); setHoverBool(true); }} onMouseLeave={() => { setHoverBool(false); }}>Activity</Link></li>
+            <li className="r-nav"><Link to="/contact" id="/contact" onMouseEnter={() => { setHoveredItem('Contact'); setHoverBool(true); }} onMouseLeave={() => { setHoverBool(false); }}>Contact</Link></li>
           </ul>
           <button type="button" onClick={() => { buttonFly(false, 'header'); }} className="up-arrow">
-            <i className="fa-solid fa-arrow-up" />
+            <i className="fa-solid fa-ellipsis" />
           </button>
         </div>
         <button type="button" onClick={() => { buttonFly(false, 'button'); }} className="box-collapse">
           <i className="fa-solid fa-bars" aria-label="Menu dropdown" />
         </button>
+        <Navhover hoveredItem={hoveredItem} showDiv={showDiv} />
       </nav>
-      <NavHover show={showDiv} divContent={divContent} />
       <Outlet />
     </>
   );
