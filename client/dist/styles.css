@@ -3,22 +3,27 @@
   --dist: 50px;
   --z-transform: 100px;
   --opac: 1;
+  --size: 400vh;
+  --nameSW: 45vw;
+  --nameSize: calc(var(--nameSW) + 11vw);
 }
 
 #root, body {
   position: absolute;
   right: 0;
   left: 0;
-  height: 300vh;
-  background: rgb(234, 234, 234);
+  top: 0;
+  height: var(--size);
   user-select: none;
 }
 
 #header {
   position: sticky;
   top: 0;
+
   opacity: 1;
   transition: opacity 0.3s, transform 0.5s;
+  z-index: 8;
 }
 
 ul a {
@@ -42,7 +47,11 @@ ul a {
   left: 0;
   right: 0;
   height: 24vh;
-  background: linear-gradient(to bottom, rgb(30, 30, 40), 10%, rgb(55, 55, 55));
+
+  background: linear-gradient(to right, rgb(19, 19, 24), 10%, rgb(26, 26, 26)),
+  linear-gradient(to bottom, rgb(54, 0, 204), 90%, rgb(0, 0, 0));
+  background-blend-mode: multiply;
+
   z-index: 8;
   opacity: 1;
 }
@@ -73,7 +82,7 @@ li {
 }
 
 ul a:hover {
-  color: rgb(255, 255, 255) ;
+  color: rgb(255, 255, 255);
   text-shadow: 0 2px 1px black;
 }
 
@@ -86,7 +95,7 @@ ul a:hover {
 .box-collapse {
   position: absolute;
   top: 1vh;
-  left: 1vh;
+  right: 1vh;
   z-index: 3;
 }
 
@@ -97,7 +106,7 @@ ul a:hover {
 .up-arrow {
   position: absolute;
   top: 24vh;
-  left: 1vh;
+  right: 1vh;
 }
 
 #hoverDiv {
@@ -106,22 +115,103 @@ ul a:hover {
   left: 0;
   right: 0;
   height: 100vh;
-  border: 3px solid green;
   font-family: 'Source Sans Pro', sans-serif;
-  background: linear-gradient(to top, rgb(30, 30, 40), 10%, rgb(55, 55, 55));
+
+  background:linear-gradient(to right, rgb(19, 19, 24), 10%, rgb(26, 26, 26)),
+  linear-gradient(to top, rgb(54, 0, 204), 70%, rgb(0, 0, 0));
+  background-blend-mode: multiply;
+
   z-index: 7;
 }
 
-.variant-1 {
-  color: rgb(0, 0, 0);
-  font-size: 3em;
-  display: inline-block;
+#hoverDiv p {
+  color: rgb(255, 255, 255);
 }
 
-.variant-2 {
-  color: rgb(55, 55, 55);
-  font-size: 4em;
-  display: inline-block;
+.home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--size);
+
+  font-family: 'Fugaz One', cursive;
+  color: rgb(210, 216, 255);
+  text-align: center;
+
+  background: linear-gradient(to top, rgb(107, 107, 114), 30%, rgb(209, 209, 209)),
+  linear-gradient(to top left, rgb(0, 73, 182) 0% 10%, rgb(0, 0, 20)) 10% 30%;
+  background-blend-mode: multiply;
+
+  z-index: 1;
+}
+
+.home h1 {
+  -webkit-text-stroke: 2px black;
+  font-size: min(10vw);
+  transform: scaleY(1.2);
+}
+
+.rotateName {
+  position: absolute;
+  top: 20vh;
+  left: calc((100vw - var(--nameSize) - 3vw) / 2);
+  height: 30em;
+  width: var(--nameSize);
+
+  background-image: url('./imgs/bgPostcard.png');
+  -webkit-background-size: cover;
+  background-size: cover;
+
+  transform: rotateZ(-12deg);
+
+  border: 1em solid rgb(210, 216, 255);
+  padding: 1em;
+  z-index: 3;
+}
+
+.rotateName img {
+  position: absolute;
+  height: 32em;
+  width: calc(var(--nameSize) + 2.5vw);
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: 2;
+}
+
+.firstN {
+  margin-top: 7vh;
+  margin-left: 10vw;
+  width: 30vw;
+  height: 8em;
+
+  text-shadow:
+  -2px 0px 2px rgb(226, 112, 25),
+  -3px 1px 2px rgb(226, 112, 25),
+  -5px 1px 2px rgb(226, 112, 25),
+  -6px 5px 0px rgb(232, 67, 34),
+  -5px 2px 1px rgb(232, 67, 34),
+  -5px 3px 1px rgb(232, 67, 34),
+  -6px 5px 0px rgb(232, 67, 34),
+  -10px 10px 6px rgb(0, 0, 0);
+}
+
+.lastN {
+  margin-top: 7vh;
+  margin-left: 5vw;
+  width: var(--nameSW);
+  height: 8em;
+
+  text-shadow:
+  -2px 0px 2px rgb(226, 112, 25),
+  -3px 1px 2px rgb(226, 112, 25),
+  -5px 1px 2px rgb(226, 112, 25),
+  -6px 5px 0px rgb(232, 67, 34),
+  -5px 2px 1px rgb(232, 67, 34),
+  -5px 3px 1px rgb(232, 67, 34),
+  -6px 5px 0px rgb(232, 67, 34),
+  -10px 10px 6px rgb(0, 0, 0);
 }
 
 @keyframes fadeIn {
