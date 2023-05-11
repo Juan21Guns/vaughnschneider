@@ -16,8 +16,8 @@ function Home() {
     }
 
     if (window.scrollY <= 350) {
-      rotateF.style.transform = `translateX(-${window.scrollY / 5}px)`;
-      rotateL.style.transform = `translateX(${window.scrollY / 10}px)`;
+      rotateF.style.transform = `translateX(${window.scrollY / 10}px)`;
+      rotateL.style.transform = `translateX(-${window.scrollY / 15}px)`;
     }
   };
 

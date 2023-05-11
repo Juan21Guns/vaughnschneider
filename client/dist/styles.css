@@ -8,6 +8,10 @@
   --nameSize: calc(var(--nameSW) + 11vw);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 #root, body {
   position: absolute;
   right: 0;
@@ -141,8 +145,8 @@ ul a:hover {
 
   background: linear-gradient(to top, rgb(107, 107, 114), 30%, rgb(209, 209, 209)),
   linear-gradient(to top left, rgb(0, 73, 182) 0% 10%, rgb(0, 0, 20)) 10% 30%;
-  background-blend-mode: multiply;
-
+  background-image: url('./imgs/bgOver.jpg');
+  background-size: 100em;
   z-index: 1;
 }
 
@@ -154,7 +158,7 @@ ul a:hover {
 
 .rotateName {
   position: absolute;
-  top: 20vh;
+  top: 15vh;
   left: calc((100vw - var(--nameSize) - 3vw) / 2);
   height: 30em;
   width: var(--nameSize);
@@ -170,17 +174,8 @@ ul a:hover {
   z-index: 3;
 }
 
-.rotateName img {
-  position: absolute;
-  height: 32em;
-  width: calc(var(--nameSize) + 2.5vw);
-  top: 0;
-  left: 0;
-  object-fit: cover;
-  z-index: 2;
-}
-
 .firstN {
+  will-change: transform;
   margin-top: 7vh;
   margin-left: 10vw;
   width: 30vw;
@@ -198,6 +193,7 @@ ul a:hover {
 }
 
 .lastN {
+  will-change: transform;
   margin-top: 7vh;
   margin-left: 5vw;
   width: var(--nameSW);

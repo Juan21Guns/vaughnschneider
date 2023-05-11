@@ -51,6 +51,8 @@ function Nav() {
     const listPath = document.querySelectorAll('ul a');
     const path = document.getElementById(`${x.pathname}`);
 
+    window.scrollTo(0, 0);
+
     listPath.forEach((element) => {
       const nonMutate = element;
       nonMutate.style.color = 'revert-layer';
@@ -64,7 +66,8 @@ function Nav() {
         buttonFly(true, 'button');
         break;
       default:
-        buttonFly(false, 'header');
+        buttonFly(true, 'header');
+        setTimeout(() => { buttonFly(true, 'button'); }, 1000);
         break;
     }
   }, [x]);
