@@ -143,10 +143,11 @@ ul a:hover {
   color: rgb(210, 216, 255);
   text-align: center;
 
-  background: linear-gradient(to top, rgb(107, 107, 114), 30%, rgb(209, 209, 209)),
-  linear-gradient(to top left, rgb(0, 73, 182) 0% 10%, rgb(0, 0, 20)) 10% 30%;
-  background-image: url('./imgs/bgOver.jpg');
-  background-size: 100em;
+  overflow: hidden;
+  overflow-x: hidden;
+  perspective: 5000px;
+  transform-style: preserve-3d;
+
   z-index: 1;
 }
 
@@ -156,9 +157,24 @@ ul a:hover {
   transform: scaleY(1.2);
 }
 
+.bgImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+
+  background: linear-gradient(to top, rgb(107, 107, 114), 30%, rgb(209, 209, 209)),
+  linear-gradient(to top left, rgb(0, 73, 182) 0% 10%, rgb(0, 0, 20)) 10% 30%;
+  background-image: url('./imgs/bgOver.jpg');
+  background-size: 120em;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
 .rotateName {
   position: absolute;
-  top: 15vh;
+  top: 14vh;
   left: calc((100vw - var(--nameSize) - 3vw) / 2);
   height: 30em;
   width: var(--nameSize);
