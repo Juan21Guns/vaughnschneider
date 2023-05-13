@@ -91,11 +91,11 @@ function Nav() {
             <li className="r-nav"><Link to="/contact" id="/contact" onMouseEnter={() => { setHoveredItem('Contact'); setHoverBool(true); }} onMouseLeave={() => { setHoverBool(false); }}>Contact</Link></li>
           </ul>
           <button type="button" onClick={() => { buttonFly(false, 'header'); }} className="up-arrow">
-            <i className="fa-solid fa-ellipsis" />
+            Me
           </button>
         </div>
         <button type="button" onClick={() => { buttonFly(false, 'button'); }} className="box-collapse">
-          <i className="fa-solid fa-bars" aria-label="Menu dropdown" />
+          Me
         </button>
         <Navhover hoveredItem={hoveredItem} showDiv={showDiv} />
       </nav>
