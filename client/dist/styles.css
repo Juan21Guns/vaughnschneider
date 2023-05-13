@@ -4,8 +4,8 @@
   --z-transform: 100px;
   --opac: 1;
   --size: 400vh;
-  --nameSW: 45vw;
-  --nameSize: calc(var(--nameSW) + 11vw);
+  --nameSW: 45em;
+  --nameSize: calc(var(--nameSW));
 }
 
 html {
@@ -18,7 +18,12 @@ html {
   left: 0;
   top: 0;
   height: var(--size);
+  min-width: 600px;
   user-select: none;
+}
+
+body::-webkit-scrollbar{
+  display: none;
 }
 
 #header {
@@ -143,41 +148,52 @@ ul a:hover {
   color: rgb(210, 216, 255);
   text-align: center;
 
-  overflow: hidden;
-  overflow-x: hidden;
-  perspective: 5000px;
-  transform-style: preserve-3d;
-
   z-index: 1;
 }
 
-.home h1 {
-  -webkit-text-stroke: 2px black;
-  font-size: min(10vw);
+.rotateName h1 {
+  -webkit-text-stroke: 2px rgb(238, 238, 238);
+  font-size: min(9em, 9em);
   transform: scaleY(1.2);
+  margin-top: 7vh;
+  text-shadow:
+  -3.5px -3.5px 0 #000,
+  -3.5px 3.5px 0 #000,
+  3.5px -3.5px 0 #000,
+  3.5px 3.5px 0 #000,
+  -7px 0px 2px rgb(226, 112, 25),
+  -8px 4px 2px rgb(226, 112, 25),
+  -9px 4px 2px rgb(226, 112, 25),
+  -10px 8px 0px rgb(232, 67, 34),
+  -9px 5px 1px rgb(232, 67, 34),
+  -10px 6px 1px rgb(232, 67, 34),
+  -12px 9px 0px rgb(232, 67, 34),
+  -14px 14px 6px rgb(0, 0, 0);
 }
 
 .bgImg {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -50vw;
   right: 0;
   height: 100%;
 
   background: linear-gradient(to top, rgb(107, 107, 114), 30%, rgb(209, 209, 209)),
   linear-gradient(to top left, rgb(0, 73, 182) 0% 10%, rgb(0, 0, 20)) 10% 30%;
   background-image: url('./imgs/bgOver.jpg');
-  background-size: 120em;
+  background-size: 160em;
   background-repeat: no-repeat;
+  overflow: hidden;
+  overflow-x: hidden;
   z-index: 2;
 }
 
 .rotateName {
   position: absolute;
   top: 14vh;
-  left: calc((100vw - var(--nameSize) - 3vw) / 2);
+  left: calc((100vw - var(--nameSize) - 8vw) / 2);
   height: 30em;
-  width: var(--nameSize);
+  min-width: var(--nameSize);
 
   background-image: url('./imgs/bgPostcard.png');
   -webkit-background-size: cover;
@@ -192,38 +208,88 @@ ul a:hover {
 
 .firstN {
   will-change: transform;
-  margin-top: 7vh;
-  margin-left: 10vw;
-  width: 30vw;
-  height: 8em;
-
-  text-shadow:
-  -2px 0px 2px rgb(226, 112, 25),
-  -3px 1px 2px rgb(226, 112, 25),
-  -5px 1px 2px rgb(226, 112, 25),
-  -6px 5px 0px rgb(232, 67, 34),
-  -5px 2px 1px rgb(232, 67, 34),
-  -5px 3px 1px rgb(232, 67, 34),
-  -6px 5px 0px rgb(232, 67, 34),
-  -10px 10px 6px rgb(0, 0, 0);
+  margin-left: 0;
+  min-width: 30vw;
+  min-height: 8em;
 }
 
 .lastN {
   will-change: transform;
-  margin-top: 7vh;
   margin-left: 5vw;
   width: var(--nameSW);
-  height: 8em;
+  min-height: 8em;
+}
 
+.sticky-wrapper {
+  position: absolute;
+  top: 114vh;
+  left: 0;
+  right: 0;
+  height: 98em;
+  z-index: 8;
+}
+
+.ticky {
+  position: sticky;
+  top: 8em;
+
+  height: 39em;
+  transition: top 1s, position 1s;
+}
+
+.fCard {
+  position: absolute;
+  top: 0;
+  left: calc((100vw - var(--nameSize) - 28em) / 2);
+  height: 35em;
+  width: calc(var(--nameSize) + 15em);
+
+  background-image: url('./imgs/altPC2.png');
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: 0 -70px;
+
+  border: 1em solid rgb(210, 216, 255);
+  padding: 1em;
+  z-index: 3;
+}
+
+.fCard h1 {
+  position: absolute;
+  top: 0.4em;
+  left: 0em;
+  height: 2.2em;
+
+  -webkit-text-stroke: 2px rgb(225, 225, 225);
+  font-size: min(10em, 10em);
+  transform: scaleY(1.2);
+  margin-top: 7vh;
+}
+
+.imgH {
+  background-image: url('./imgs/altPC3.png');
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 10em;
+  background-position: 0 5em;
+  z-index: 8;
+}
+
+.shadowH {
   text-shadow:
-  -2px 0px 2px rgb(226, 112, 25),
-  -3px 1px 2px rgb(226, 112, 25),
-  -5px 1px 2px rgb(226, 112, 25),
-  -6px 5px 0px rgb(232, 67, 34),
-  -5px 2px 1px rgb(232, 67, 34),
-  -5px 3px 1px rgb(232, 67, 34),
-  -6px 5px 0px rgb(232, 67, 34),
-  -10px 10px 6px rgb(0, 0, 0);
+  -3.5px -3.5px 0 #000,
+  -3.5px 3.5px 0 #000,
+  3.5px -3.5px 0 #000,
+  3.5px 3.5px 0 #000,
+  7px 0px 2px rgb(226, 112, 25),
+  8px 4px 2px rgb(226, 112, 25),
+  9px 4px 2px rgb(226, 112, 25),
+  10px 8px 0px rgb(232, 67, 34),
+  9px 5px 1px rgb(232, 67, 34),
+  10px 6px 1px rgb(232, 67, 34),
+  12px 9px 0px rgb(232, 67, 34),
+  14px 14px 6px rgb(0, 0, 0);
 }
 
 @keyframes fadeIn {

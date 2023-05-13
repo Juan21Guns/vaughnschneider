@@ -13,16 +13,23 @@ function Nav() {
   const buttonFly = (hidden, option) => {
     const navBar = document.querySelector('.collapse');
     const button = document.querySelector('.box-collapse');
+    const sticky = document.querySelector('.ticky');
 
     if (option === 'button') {
       if (hidden) {
         button.style.visibility = 'hidden';
+      }
+      if (sticky !== null) {
+        sticky.style.top = '8em';
       }
       navBar.style.transform = 'translateY(0)';
       button.style.transform = `translateY(${distance})`;
     } else if (option === 'header') {
       button.style.visibility = 'visible';
       navBar.style.transform = `translateY(${distance})`;
+      if (sticky !== null) {
+        sticky.style.top = '5em';
+      }
       setShowDiv(false);
       setTimeout(() => { button.style.transform = 'translateY(0)'; }, 1000);
     }

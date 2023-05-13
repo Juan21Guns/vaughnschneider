@@ -39,7 +39,6 @@ function Navhover({ hoveredItem, showDiv }) {
       <p>{contentChange}</p>
     </div>
     )
-
   );
 }
 
