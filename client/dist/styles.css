@@ -10,6 +10,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 #root, body {
@@ -22,9 +23,13 @@ html {
   user-select: none;
 }
 
-
 body::-webkit-scrollbar{
   display: none;
+}
+
+h2 {
+  font-family: 'Bonheur Royale', cursive;
+  font-size: 4em;
 }
 
 #header {
@@ -240,21 +245,32 @@ ul a:hover {
   right: 0;
   height: 98em;
   z-index: 8;
-  perspective: 1000px;
+  perspective: 3000px;
   transform-style: preserve-3d;
+  opacity: 0;
 }
 
 .ticky {
-  border: 3px solid red;
   position: sticky;
   top: 8em;
-
   height: 39em;
   transition: top 1s, position 1s;
-  transform: rotateY(180deg);
-  animation: 2s spin;
   transform-style: preserve-3d;
+}
 
+.anim-1 {
+  animation: spin 1s;
+  animation-fill-mode: both;
+}
+
+.anim-2 {
+  animation: spin-r 1s;
+  animation-fill-mode: both;
+}
+
+.fCard img {
+  background: transparent;
+  color: red;
 }
 
 .bCard {
@@ -264,18 +280,85 @@ ul a:hover {
   height: 35em;
   width: calc(var(--nameSize) + 15em);
 
-  background-image: url('./imgs/altPC3.png');
+  background: radial-gradient(rgb(252, 235, 188), rgb(223, 194, 158), rgb(197, 164, 129));
   -webkit-background-size: cover;
   background-size: cover;
   background-position: 0 -70px;
-
-  border: 1em solid rgb(210, 216, 255);
   padding: 1em;
+  color: rgb(69, 68, 68);
 
-  transform: rotateY(180deg);
+  transform: perspective(1000px) translateZ(0) rotateY(180deg);
   backface-visibility: hidden;
 
   z-index: 3;
+}
+
+.bCard-box {
+  position: absolute;
+  top: 5%;
+  left: 85%;
+  height: 7em;
+  width: 5em;
+  border: 3px dashed rgb(69, 68, 68);
+  opacity: 0.8;
+}
+
+.bCard-vert {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  height: 25em;
+  width: 0.2em;
+  background-color:rgb(69, 68, 68);
+  opacity: 0.8;
+}
+
+.bCard-rows {
+  position: absolute;
+  top: 30%;
+  left: 44%;
+  height: 20em;
+  width: 30em;
+  opacity: 0.8;
+}
+
+.bCard-rows div {
+  margin-top: 2.35em;
+  display: inline-block;
+  height: 0.2em;
+  width: 28em;
+  background-color: rgb(69, 68, 68);
+}
+
+.bCard h2 {
+  position: absolute;
+  top: 9%;
+  left: 35%;
+  text-decoration: underline 3px solid;
+}
+
+.bCard p {
+  position: absolute;
+  top: 14%;
+  left: 0;
+  font-size: 1.5em;
+  color: rgb(69, 68, 68);
+  -webkit-text-stroke: 0px rgb(0, 0, 0);
+}
+
+.skills {
+  position: absolute;
+  top: 30%;
+  left: 44%;
+  margin-left: 2em;
+  height: 20em;
+  width: 30em;
+  text-align: left;
+}
+
+.skills h3 {
+  font-size: 1.8em;
+  margin-top: 0.5em;
 }
 
 .fCard {
@@ -293,7 +376,7 @@ ul a:hover {
   border: 1em solid rgb(210, 216, 255);
   padding: 1em;
 
-  transform: rotateY(0);
+  transform: translateZ(0) rotateY(0);
   backface-visibility: hidden;
 
   z-index: 3;
@@ -351,9 +434,18 @@ ul a:hover {
 
 @keyframes spin {
   0% {
-    transform: rotateY(0deg);
+    transform: rotateX(-5deg) rotateY(0deg);
   }
   100% {
-    transform: rotateY(180deg);
+    transform: rotateX(5deg) rotateY(180deg);
+  }
+}
+
+@keyframes spin-r {
+  0% {
+    transform: rotateX(5deg) rotateY(180deg);
+  }
+  100% {
+    transform: rotateX(-5deg) rotateY(0);
   }
 }
