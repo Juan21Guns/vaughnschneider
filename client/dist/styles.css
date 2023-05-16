@@ -361,17 +361,6 @@ ul a:hover {
   margin-top: 0.5em;
 }
 
-.stars {
-  position: absolute;
-  left: -69%;
-  scale: 2;
-  padding-bottom: 3.5em;
-}
-
-.stars i {
-  padding-left: 0.6em;
-}
-
 .fCard {
   position: absolute;
   top: 0;

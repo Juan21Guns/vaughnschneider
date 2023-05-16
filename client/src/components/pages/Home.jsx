@@ -101,53 +101,11 @@ function Home() {
             </div>
             <div className="skills">
               <h3>React</h3>
-              <div className="stars">
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-              </div>
               <h3>Javascript</h3>
-              <div className="stars">
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-              </div>
               <h3>Redux</h3>
-              <div className="stars">
-                <i className="fa-sharp fa-regular fa-star" />
-                <i className="fa-sharp fa-regular fa-star" />
-                <i className="fa-sharp fa-regular fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-              </div>
               <h3>Express</h3>
-              <div className="stars">
-                <i className="fa-sharp fa-regular fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-              </div>
               <h3>MongoDB</h3>
-              <div className="stars">
-                <i className="fa-sharp fa-regular fa-star" />
-                <i className="fa-sharp fa-regular fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-              </div>
               <h3>MySQL</h3>
-              <div className="stars">
-                <i className="fa-sharp fa-regular fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-                <i className="fa-sharp fa-solid fa-star" />
-              </div>
             </div>
           </div>
         </div>
