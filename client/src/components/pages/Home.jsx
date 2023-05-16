@@ -1,5 +1,4 @@
 import React from 'react';
-import stamp from '../../../dist/imgs/clickHere.png';
 
 function Home() {
   const scrollCallback = () => {
@@ -81,7 +80,6 @@ function Home() {
       <div className="sticky-wrapper">
         <div className="ticky">
           <div className="fCard">
-            {/* <button type="button"><img src={stamp} alt="click-here" /></button> */}
             <p>I am a</p>
             <h1 className="imgH">Software Engineer</h1>
             <h1 className="shadowH">Software Engineer</h1>
@@ -103,11 +101,53 @@ function Home() {
             </div>
             <div className="skills">
               <h3>React</h3>
+              <div className="stars">
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+              </div>
               <h3>Javascript</h3>
+              <div className="stars">
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+              </div>
               <h3>Redux</h3>
+              <div className="stars">
+                <i className="fa-sharp fa-regular fa-star" />
+                <i className="fa-sharp fa-regular fa-star" />
+                <i className="fa-sharp fa-regular fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+              </div>
               <h3>Express</h3>
+              <div className="stars">
+                <i className="fa-sharp fa-regular fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+              </div>
               <h3>MongoDB</h3>
+              <div className="stars">
+                <i className="fa-sharp fa-regular fa-star" />
+                <i className="fa-sharp fa-regular fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+              </div>
               <h3>MySQL</h3>
+              <div className="stars">
+                <i className="fa-sharp fa-regular fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+                <i className="fa-sharp fa-solid fa-star" />
+              </div>
             </div>
           </div>
         </div>
