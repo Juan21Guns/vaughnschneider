@@ -1,9 +1,10 @@
 import React from 'react';
 
 function Home() {
+  const [scrollX, setScrollX] = React.useState(document.body.scrollWidth);
+  const [scrollY, setScrollY] = React.useState(document.body.scrollHeight);
+
   const scrollCallback = () => {
-    const willChange = document.querySelector('.firstN');
-    const willChange2 = document.querySelector('.lastN');
     const header = document.getElementById('header');
     const rotateF = document.querySelector('.firstN');
     const rotateL = document.querySelector('.lastN');
@@ -13,11 +14,11 @@ function Home() {
 
     // TOP CARD WILL CHANGE
     if (scroll > 1000) {
-      willChange.style.willChange = 'revert-layer';
-      willChange2.style.willChange = 'revert-layer';
+      rotateF.style.willChange = 'revert-layer';
+      rotateL.style.willChange = 'revert-layer';
     } else if (scroll <= 999) {
-      willChange.style.willChange = 'transform';
-      willChange2.style.willChange = 'transform';
+      rotateF.style.willChange = 'transform';
+      rotateL.style.willChange = 'transform';
     }
 
     // HEADER and TOP CARD
@@ -42,8 +43,6 @@ function Home() {
       fCard.style.willChange = 'revert-layer';
     }
 
-    console.log(scroll);
-
     if (scroll > 1200) {
       ticky.classList.remove('anim-2');
       ticky.classList.add('anim-1');
@@ -51,6 +50,16 @@ function Home() {
       ticky.classList.remove('anim-1');
       ticky.classList.add('anim-2');
     }
+  };
+
+  const resizeCallback = () => {
+    const rotateName = document.querySelector('.rotateName');
+    const stickyWrapper = document.querySelector('.ticky');
+    const y = document.body.scrollHeight / scrollY;
+    const x = document.body.scrollWidth / scrollX;
+
+    rotateName.style.scale = x;
+    stickyWrapper.style.scale = x;
   };
 
   React.useEffect(() => {
@@ -61,12 +70,15 @@ function Home() {
     willChange.style.willChange = 'transform';
     willChange2.style.willChange = 'transform';
     header.style.opacity = '0';
+
     window.addEventListener('scroll', scrollCallback, true);
+    window.addEventListener('resize', resizeCallback);
 
     return () => {
       willChange.style.willChange = 'revert-layer';
       willChange2.style.willChange = 'revert-layer';
       window.removeEventListener('scroll', scrollCallback, true);
+      window.removeEventListener('resize', resizeCallback);
     };
   }, []);
 
@@ -111,6 +123,9 @@ function Home() {
         </div>
       </div>
       <div className="bgImg" />
+      <div className="asdf">
+
+      </div>
     </div>
   );
 }
