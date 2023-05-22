@@ -21,6 +21,7 @@ html {
   height: var(--size);
   min-width: 600px;
   user-select: none;
+  background-color: rgb(20, 20, 20);
 }
 
 body::-webkit-scrollbar{
@@ -119,7 +120,7 @@ ul a:hover {
 
 .up-arrow {
   position: absolute;
-  top: 24vh;
+  top: 15em;
   right: 1vh;
 }
 
@@ -152,7 +153,6 @@ ul a:hover {
   font-family: 'Fugaz One', cursive;
   color: rgb(210, 216, 255);
   text-align: center;
-
   z-index: 1;
 }
 
@@ -191,7 +191,7 @@ ul a:hover {
   top: 0;
   left: -50vw;
   right: 0;
-  height: 320vh;
+  height: 340vh;
 
   background: linear-gradient(to top, rgb(107, 107, 114), 30%, rgb(209, 209, 209)),
   linear-gradient(to top left, rgb(0, 73, 182) 0% 10%, rgb(0, 0, 20)) 10% 30%;
@@ -275,7 +275,7 @@ ul a:hover {
 .bCard {
   position: absolute;
   top: 0;
-  left: calc((100vw - var(--nameSize) - 28em) / 2);
+  left: calc((100vw - var(--nameSize) - 10em) / 2);
   height: 35em;
   width: calc(var(--nameSize) + 15em);
 
@@ -363,7 +363,7 @@ ul a:hover {
 .fCard {
   position: absolute;
   top: 0;
-  left: calc((100vw - var(--nameSize) - 28em) / 2);
+  left: calc((100vw - var(--nameSize) - 14em) / 2);
   height: 35em;
   width: calc(var(--nameSize) + 15em);
 
@@ -413,6 +413,91 @@ ul a:hover {
   14px 14px 6px rgb(0, 0, 0);
 }
 
+.under-water {
+  position: absolute;
+  top: 310vh;
+  right: 0;
+  left: 0;
+  height: 130vh;
+  background: linear-gradient(to bottom, rgb(0, 60, 250), 60%, rgb(20, 20, 20));
+  z-index: 7;
+  transition: height 0.5s;
+}
+
+.wave-capsule {
+  will-change: contents;
+  position: absolute;
+  top: 0vh;
+  right: 0;
+  left: 0;
+  height: 30vh;
+  background-color: rgb(0, 0, 0);
+  z-index: 8;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+
+.wave1 {
+  position: absolute;
+  top: -400vw;
+  left: -150vw;
+  height: 400vw;
+  width: 400vw;
+  background: rgb(255, 255, 255);
+  /* animation: waves 3s linear infinite; */
+}
+
+.uw-tog {
+  position: absolute;
+  top: 40vh;
+  left: 5%;
+  height: 60%;
+  width: 90%;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.uw-bubble {
+  box-shadow: inset 0 0 20px black;
+  background: none;
+
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+  height: 12em;
+  width: 18em;
+  min-width: 15em;
+  border-radius: 10%;
+
+  z-index: 9;
+  transform: translateY(60%);
+  -webkit-text-fill-color: rgb(61, 61, 61);
+  transition: 0.5s box-shadow, 2s -webkit-text-fill-color;
+}
+
+.uw-bubble h1 {
+  font-family: 'Titan One', cursive;
+  text-decoration: none;
+  font-size: 2.5em;
+
+  margin: 0 auto;
+  text-shadow: 2px 4px 5px rgb(0,0,0);
+  transform: translateY(170%);
+}
+
+.uw-bubble:hover {
+  box-shadow:
+  inset 1px 1px 4px rgb(255, 255, 255),
+  inset -10px -15px 10px rgb(20, 20, 20);
+  background: radial-gradient(farthest-corner at 10px 10px,
+  rgba(0, 13, 162, 0.4),
+  rgba(0, 13, 255, 0.4),
+  rgba(0, 13, 162, 0.4),
+  rgba(0, 23, 152, 0.4),
+  rgba(255, 0, 136, 0.4));
+  -webkit-text-fill-color: white;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -446,5 +531,16 @@ ul a:hover {
   }
   100% {
     transform: rotateX(-5deg) rotateY(0);
+  }
+}
+
+@keyframes waves {
+  0% {
+    transform: translateY(2%) rotate(0);
+    border-radius: 45%;
+  }
+  100% {
+    transform: translateY(2%) rotate(480deg);
+    border-radius: 45%;
   }
 }

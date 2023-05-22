@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import Navhover from './Navhover';
+import Navhover from '../accessories/Navhover';
 
 function Nav() {
   const [showDiv, setShowDiv] = React.useState(false);
@@ -14,6 +14,7 @@ function Nav() {
     const navBar = document.querySelector('.collapse');
     const button = document.querySelector('.box-collapse');
     const sticky = document.querySelector('.ticky');
+    const underWater = document.querySelector('.under-water');
 
     if (option === 'button') {
       if (hidden) {
@@ -22,6 +23,9 @@ function Nav() {
       if (sticky !== null) {
         sticky.style.top = '8em';
       }
+      if (underWater !== null) {
+        underWater.style.height = '118vh';
+      }
       navBar.style.transform = 'translateY(0)';
       button.style.transform = `translateY(${distance})`;
     } else if (option === 'header') {
@@ -29,6 +33,16 @@ function Nav() {
       navBar.style.transform = `translateY(${distance})`;
       if (sticky !== null) {
         sticky.style.top = '5em';
+      }
+      if (underWater !== null && window.scrollY > 2600) {
+        underWater.style.height = '130vh';
+        setTimeout(() => {
+          window.scrollBy({
+            top: 115,
+            left: 0,
+            behavior: 'smooth',
+          });
+        }, 500);
       }
       setShowDiv(false);
       setTimeout(() => { button.style.transform = 'translateY(0)'; }, 1000);
@@ -70,7 +84,7 @@ function Nav() {
 
     switch (x.pathname) {
       case '/':
-        buttonFly(true, 'button');
+        buttonFly(true, 'header');
         break;
       default:
         buttonFly(true, 'header');

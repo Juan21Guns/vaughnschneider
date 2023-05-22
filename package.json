@@ -30,7 +30,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "file-loader": "^6.2.0",
     "prop-types": "^15.8.1",
-    "react-router-dom": "^6.11.0",
     "url-loader": "^4.1.1",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.3"
@@ -48,6 +47,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.0",
     "webpack": "^5.80.0"
   }
 }

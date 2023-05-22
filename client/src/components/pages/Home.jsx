@@ -1,8 +1,9 @@
 import React from 'react';
+import Bubble from '../accessories/Bubble';
 
 function Home() {
-  const [scrollX, setScrollX] = React.useState(document.body.scrollWidth);
-  const [scrollY, setScrollY] = React.useState(document.body.scrollHeight);
+  const [scrollX] = React.useState(document.body.scrollWidth);
+  // const [scrollY] = React.useState(document.body.scrollHeight);
 
   const scrollCallback = () => {
     const header = document.getElementById('header');
@@ -10,6 +11,7 @@ function Home() {
     const rotateL = document.querySelector('.lastN');
     const fCard = document.querySelector('.sticky-wrapper');
     const ticky = document.querySelector('.ticky');
+    const uwBubble = document.querySelector('.uw-tog');
     const scroll = window.scrollY;
 
     // TOP CARD WILL CHANGE
@@ -50,12 +52,16 @@ function Home() {
       ticky.classList.remove('anim-1');
       ticky.classList.add('anim-2');
     }
+
+    if (scroll > 2791) {
+      setTimeout(() => { uwBubble.style.opacity = '1'; }, 500);
+    }
   };
 
   const resizeCallback = () => {
     const rotateName = document.querySelector('.rotateName');
     const stickyWrapper = document.querySelector('.ticky');
-    const y = document.body.scrollHeight / scrollY;
+    // const y = document.body.scrollHeight / scrollY;
     const x = document.body.scrollWidth / scrollX;
 
     rotateName.style.scale = x;
@@ -123,8 +129,16 @@ function Home() {
         </div>
       </div>
       <div className="bgImg" />
-      <div className="asdf">
-
+      <div className="under-water">
+        <div className="wave-capsule">
+          <div className="wave1" />
+        </div>
+        <div className="uw-tog">
+          <Bubble name="About" key="About" />
+          <Bubble name="Projects" key="Projects" />
+          <Bubble name="Activity" key="Activity" />
+          <Bubble name="Contact" key="Contact" />
+        </div>
       </div>
     </div>
   );
